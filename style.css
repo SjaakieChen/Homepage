@@ -1,0 +1,408 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+input[type="text"] {
+    /* Style for the text input */
+    border-radius: 10px;    
+
+}
+
+/*draggable__________________________________________________________________ */
+.draggable {
+    cursor: move;
+    user-select: none;
+}
+
+.drag-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: move;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #0056b3;
+    height: 15px;
+}
+/*draggable__________________________________________________________________ */
+
+
+/*buttons__________________________________________________________________ */
+button {
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+button.delete-btn {
+    height: 40px;
+    width: 80px;
+    border:2px solid color-mix(in srgb, red 50%, blue 50%);
+    background-color: transparent;
+    border-radius: 10px;
+    color: black;
+}
+
+button.delete-btn:hover {
+    border:2px solid color-mix(in srgb, red 70%, blue 30%);
+}
+
+
+
+/*buttons__________________________________________________________________ */
+
+li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section:hover{
+    cursor: default;
+}
+/*navbar__________________________________________________________________ */
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around; /* Distribute items evenly */
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    color: blanchedalmond;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    background-color: #333; /* Match navbar color */
+}
+
+.navbar button{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/*manager__________________________________________________________________ */
+.manager {
+    position: absolute;
+    top: 70px; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+/*manager__________________________________________________________________ */
+
+.task-manager {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    width: 300px; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+/*manager__________________________________________________________________ */
+
+
+/*task-section__________________________________________________________________ */
+.task-manager input[type="text"]{
+    width: 200px; /* Adjust the width as needed */
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+#taskList {
+    padding-left: 0; /* Removes default padding */
+    margin-left: 0; /* Removes default margin */
+}
+
+#addTask_button{
+    height: 40px;
+    width: 80px;
+    border:2px solid color-mix(in srgb, red 50%, blue 50%);
+    background-color: transparent;
+    border-radius: 10px;
+    color: black;
+}
+#addTask_button:hover{
+    border:2px solid color-mix(in srgb, red 30%, blue 70%);
+}
+
+
+/*task-section__________________________________________________________________ */
+
+
+
+
+/*search-section__________________________________________________________________ */
+.search-manager {
+    position: absolute;
+    top: 70px; /* Same as task manager */
+    left: 350px; /* Adjust based on the width of the task manager */
+    width: 500px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    left: 340px;
+}
+
+
+
+
+.search-manager input[type="text"] {
+    width: 200px; /* Adjust the width as needed */
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#search_textbox{
+    width: 450px;
+}
+#google_search_button{
+    height: 40px;
+    width: 40px;
+    border:2px solid color-mix(in srgb, red 50%, blue 50%);
+    background-color: transparent;
+    border-radius: 100px;
+}
+#google_search_button:hover{
+    border:2px solid color-mix(in srgb, red 30%, blue 70%);
+    cursor: pointer;
+}
+/*search-section__________________________________________________________________ */
+
+
+/*chess-section__________________________________________________________________ */
+
+.chess-manager {
+    position: absolute;
+    width: 340px; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners */
+}
+
+#chessboard {
+    width: 320px;
+    height: 320px;
+    display: grid;
+    grid-template: repeat(8, 1fr) / repeat(8, 1fr);
+    border: steelblue;
+}
+
+.chess-square {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+    background-color: #f0f0f0;
+}
+
+.chess-manager button{
+    background-color: white;
+    color: black;
+}
+
+.chess-manager button:hover{
+    background-color: beige;
+    color: black;
+}
+
+/* Alternate coloring for squares */
+
+.chess-square:nth-child(2) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(4) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(6) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(8) {
+    background-color: steelblue;
+}
+
+.chess-square:nth-child(9) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(11) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(13) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(15) {
+    background-color: steelblue;
+}
+
+
+.chess-square:nth-child(18) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(20) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(22) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(24) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(25) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(27) {
+    background-color: steelblue;
+}.chess-square:nth-child(29) {
+    background-color: steelblue;
+}
+
+.chess-square:nth-child(31) {
+    background-color: steelblue;
+}.chess-square:nth-child(34) {
+    background-color: steelblue;
+}.chess-square:nth-child(36) {
+    background-color: steelblue;
+}.chess-square:nth-child(38) {
+    background-color: steelblue;
+}
+
+.chess-square:nth-child(40) {
+    background-color: steelblue;
+}.chess-square:nth-child(41) {
+    background-color: steelblue;
+}.chess-square:nth-child(43) {
+    background-color: steelblue;
+}.chess-square:nth-child(45) {
+    background-color: steelblue;
+}
+
+.chess-square:nth-child(47) {
+    background-color: steelblue;
+}.chess-square:nth-child(50) {
+    background-color: steelblue;
+}.chess-square:nth-child(52) {
+    background-color: steelblue;
+}.chess-square:nth-child(54) {
+    background-color: steelblue;
+}
+.chess-square:nth-child(56) {
+    background-color: steelblue;
+}.chess-square:nth-child(57) {
+    background-color: steelblue;
+}.chess-square:nth-child(59) {
+    background-color: steelblue;
+}.chess-square:nth-child(61) {
+    background-color: steelblue;
+}.chess-square:nth-child(63) {
+    background-color: steelblue;
+}
+
+#pieceSelection {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Adjust based on the number of pieces */
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.chess-piece {
+    cursor: pointer;
+    font-size: 1em;
+    background-color: black;
+    /* Additional styling as needed */
+}
+
+.chess-square {
+    text-align: center;
+    line-height: 40px; /* Adjust based on the height of your squares */
+    font-size: 30px;
+}
+
+/*chess-section__________________________________________________________________ */
+
+
+/*flappy-section__________________________________________________________________ */
+
+.manager {
+    border: none;
+    background-color: #f0f0f0;
+    box-shadow: none;
+    margin: 0;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+header {
+  margin: 0 auto;
+  width: 431px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  user-select: none;
+}
+h1 {
+  background: url("https://i.ibb.co/Q9yv5Jk/flappy-bird-set.png") 0% 340px;
+  padding: 1.2rem 0;
+  margin: 0;
+}
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 6px;
+  background: #5EE270;
+}
+
+.Flappybird-manager{
+    width: 430px;
+}
+/*flappy-section__________________________________________________________________ */
