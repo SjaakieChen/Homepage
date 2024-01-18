@@ -177,6 +177,7 @@ document.querySelectorAll('.draggable').forEach(loadPosition);
     
         // Add click event to add or remove pieces
         var selectedPiece = '';
+        var swap = false
 
         // Event listener for selecting a piece from the grid
         document.querySelectorAll('#pieceSelection .chess-piece').forEach(function(button) {
@@ -188,8 +189,27 @@ document.querySelectorAll('.draggable').forEach(loadPosition);
         // Event listener for placing the piece on the chessboard
         document.querySelectorAll('#chessboard .chess-square').forEach(function(square) {
             square.addEventListener('click', function() {
-                if (selectedPiece) {
+                if (swap == true){
+                    previous_square.innerHTML = '';
+                    previous_square.style.backgroundColor = previous_color;
                     this.innerHTML = selectedPiece;
+                    swap = false;
+                    return
+                }
+
+                if (this.innerHTML == ''){
+                    if (selectedPiece) {
+                        this.innerHTML = selectedPiece;
+                        return
+                    }
+            }
+                if (this.innerHTML !==''){
+                    previous_color = this.style.backgroundColor;
+                    this.style.backgroundColor = 'cyan';
+                    selectedPiece = this.innerHTML;
+                    swap = true;
+                    previous_square = this;
+                    return
                 }
             });
         });
@@ -197,8 +217,8 @@ document.querySelectorAll('.draggable').forEach(loadPosition);
         // Event listener for removing the piece on the chessboard
         document.querySelectorAll('#chessboard .chess-square').forEach(function(square) {
             square.addEventListener('contextmenu', function() {
-                if (selectedPiece) {
-                    this.innerHTML = ' ';
+                if (swap == false) {
+                    this.innerHTML = '';
                     event.preventDefault();
                     
                 }
