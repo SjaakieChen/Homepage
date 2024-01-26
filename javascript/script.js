@@ -352,10 +352,11 @@ const player = document.getElementById('lofiPlayer');
 var source = document.getElementById('lofiSource');
 
 player.addEventListener('ended', function() {
+    currentTrack++;
     if (currentTrack >= playlist.length) {
         currentTrack = 0;
     }
-    currentTrack++;
+
     source.src = playlist[currentTrack];
     player.load();
     player.play()
