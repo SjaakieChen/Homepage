@@ -355,11 +355,12 @@ player.addEventListener('ended', function() {
     if (currentTrack >= playlist.length) {
         currentTrack = 0;
     }
+    currentTrack++;
     source.src = playlist[currentTrack];
     player.load();
     player.play()
     console.log('works');
-    currentTrack++;
+    
 });
 
 // Save the current state to localStorage
