@@ -216,11 +216,11 @@ document.querySelectorAll('.draggable').forEach(loadPosition);
 
         // Event listener for removing the piece on the chessboard
         document.querySelectorAll('#chessboard .chess-square').forEach(function(square) {
-            square.addEventListener('contextmenu', function() {
+            square.addEventListener('contextmenu', function(event) {
                 if (swap == false) {
                     this.innerHTML = '';
                     event.preventDefault();
-                    
+
                 }
             });
         });
@@ -367,7 +367,8 @@ player.addEventListener('ended', function() {
 function savePlayerState() {
     localStorage.setItem('playerVolume', player.volume);
     localStorage.setItem('playerCurrentTime', player.currentTime);
-    localStorage.setItem('currentTrack',playlist[currentTrack]);
+    // store the index of the current track instead of the URL
+    localStorage.setItem('currentTrack', currentTrack);
 }
 
 // Load the saved state from localStorage
@@ -382,8 +383,9 @@ function loadPlayerState() {
     if (savedCurrentTime !== null) {
         player.currentTime = parseFloat(savedCurrentTime);
     }
-    if (currentTrack !== null) {
-        player.currentTrack = parseFloat(savedCurrentTrack);
+    // restore the previously playing track if available
+    if (savedCurrentTrack !== null) {
+        currentTrack = parseInt(savedCurrentTrack, 10);
         source.src = playlist[currentTrack];
     }
 
