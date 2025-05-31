@@ -1,6 +1,9 @@
 //initialize________________________________________________________________
     document.addEventListener('DOMContentLoaded', function() {
         loadTasks();        // Load saved tasks
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
         attachEventListeners(); // Attach event listeners to various elements
     });
     initializePositions();
@@ -10,12 +13,33 @@
 
     
 // navbar url function
-    function goToUrl() {
-        const url = document.getElementById('urlInput').value;
-        if (url) {
-            window.open(url, '_blank').focus();
-        }
+function goToUrl() {
+    const url = document.getElementById('urlInput').value;
+    if (url) {
+        window.open(url, '_blank').focus();
     }
+}
+
+function attachEventListeners() {
+    const taskInput = document.getElementById('taskInput');
+    if (taskInput) {
+        taskInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addTask();
+            }
+        });
+    }
+    const toggleButton = document.getElementById('darkModeToggle');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', toggleDarkMode);
+    }
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+}
 
 
 
@@ -382,9 +406,12 @@ function loadPlayerState() {
     if (savedCurrentTime !== null) {
         player.currentTime = parseFloat(savedCurrentTime);
     }
-    if (currentTrack !== null) {
-        player.currentTrack = parseFloat(savedCurrentTrack);
-        source.src = playlist[currentTrack];
+    if (savedCurrentTrack !== null) {
+        currentTrack = playlist.indexOf(savedCurrentTrack);
+        if (currentTrack === -1) {
+            currentTrack = 0;
+        }
+        source.src = savedCurrentTrack;
     }
 
 }
